@@ -16598,7 +16598,8 @@ const util_1 = __nccwpck_require__(9604);
 const timeFromReviewToMerge = (pr) => {
     const { timeline } = pr;
     const value = Number(timeline.mergedAt) - Number(timeline.firstRequestedAt);
-    return { value, message: `Time from review to merge: ${(0, util_1.printTime)(value)}` };
+    const safeValue = isNaN(value) ? 0 : value;
+    return { value: safeValue, message: `Time from review to merge: ${(0, util_1.printTime)(safeValue)}` };
 };
 exports.timeFromReviewToMerge = timeFromReviewToMerge;
 

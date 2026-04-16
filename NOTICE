@@ -28,6 +28,8 @@ Changes made (2026-04-16):
   * src/stats/pr/created-at.ts: Added fallback value for missing dates
   * src/stats/pr/merged-at.ts: Added fallback value for missing dates
 - Fixed "Cannot read properties of undefined" error for PRs missing Open/Merge events
+- Added NaN check in timeFromReviewToMerge calculation:
+  * src/stats/pr/time-from-review-to-merge.ts: Returns 0 when dates are undefined/invalid
 
 --------------------------------------------------------------------------------------
 
