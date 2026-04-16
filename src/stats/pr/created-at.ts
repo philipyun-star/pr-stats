@@ -11,7 +11,7 @@ export const createdAt = (pr: PR): IResult<number> => {
     const value = pr.createdAt;
 
     return {
-        value: +value,
-        message: `Created At: ${value}`,
+        value: value ? +value : 0,
+        message: `Created At: ${value ?? "N/A"}`,
     };
 };

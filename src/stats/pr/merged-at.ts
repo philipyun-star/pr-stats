@@ -11,7 +11,7 @@ export const mergedAt = (pr: PR): IResult<number> => {
     const value = pr.mergedAt;
 
     return {
-        value: +value,
-        message: `Merged At: ${value}`,
+        value: value ? +value : 0,
+        message: `Merged At: ${value ?? 'N/A'}`,
     };
 };

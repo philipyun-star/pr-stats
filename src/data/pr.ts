@@ -72,11 +72,11 @@ export class PR {
         return this._changedFiles;
     }
 
-    get mergedAt(): Date {
+    get mergedAt(): Date | undefined {
         return this._timeline.mergedAt;
     }
 
-    get createdAt(): Date {
+    get createdAt(): Date | undefined {
         return this._timeline.createdAt;
     }
 

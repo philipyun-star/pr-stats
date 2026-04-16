@@ -15107,7 +15107,7 @@ class Timeline {
         return this.reviewRequests[0]?.createdAt;
     }
     get createdAt() {
-        return this._activities.find(activity => activity instanceof events_1.Open).createdAt;
+        return this._activities.find(activity => activity instanceof events_1.Open)?.createdAt;
     }
     get mergedAt() {
         return this._activities.find(activity => activity instanceof events_1.Merge)?.createdAt;
@@ -16369,8 +16369,8 @@ exports.createdAt = void 0;
 const createdAt = (pr) => {
     const value = pr.createdAt;
     return {
-        value: +value,
-        message: `Created At: ${value}`,
+        value: value ? +value : 0,
+        message: `Created At: ${value ?? "N/A"}`,
     };
 };
 exports.createdAt = createdAt;
@@ -16462,8 +16462,8 @@ exports.mergedAt = void 0;
 const mergedAt = (pr) => {
     const value = pr.mergedAt;
     return {
-        value: +value,
-        message: `Merged At: ${value}`,
+        value: value ? +value : 0,
+        message: `Merged At: ${value ?? 'N/A'}`,
     };
 };
 exports.mergedAt = mergedAt;
@@ -17001,7 +17001,10 @@ __exportStar(__nccwpck_require__(1277), exports);
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.average = void 0;
-const average = (arr) => arr.length ? arr.reduce((acc, cur) => acc + cur, 0) / arr.length : 0;
+const average = (arr) => {
+    const validValues = arr.filter(val => !isNaN(val) && isFinite(val));
+    return validValues.length ? validValues.reduce((acc, cur) => acc + cur, 0) / validValues.length : 0;
+};
 exports.average = average;
 
 

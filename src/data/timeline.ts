@@ -52,8 +52,8 @@ export class Timeline {
         return this.reviewRequests[0]?.createdAt;
     }
 
-    get createdAt(): Date {
-        return this._activities.find(activity => activity instanceof Open)!.createdAt;
+    get createdAt(): Date | undefined {
+        return this._activities.find(activity => activity instanceof Open)?.createdAt;
     }
 
     get mergedAt(): Date | undefined {
