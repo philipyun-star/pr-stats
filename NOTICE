@@ -15,6 +15,22 @@ limitations under the License.
 
 --------------------------------------------------------------------------------------
 
+MODIFICATIONS
+
+This version has been modified from the original naver/pr-stats project.
+Repository: https://github.com/philipyun-star/pr-stats
+
+Changes made (2026-04-16):
+- Updated action.yml to use Node.js 20 (from Node.js 16)
+- Added null safety checks in Timeline and PR classes:
+  * src/data/timeline.ts: Changed createdAt getter to return Date | undefined
+  * src/data/pr.ts: Changed createdAt getter to return Date | undefined
+  * src/stats/pr/created-at.ts: Added fallback value for missing dates
+  * src/stats/pr/merged-at.ts: Added fallback value for missing dates
+- Fixed "Cannot read properties of undefined" error for PRs missing Open/Merge events
+
+--------------------------------------------------------------------------------------
+
 This project contains subcomponents with separate copyright notices and license terms. 
 Your use of the source code for these subcomponents is subject to the terms and conditions of the following licenses.
 
